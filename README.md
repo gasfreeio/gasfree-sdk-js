@@ -54,7 +54,7 @@ try {
 		value: 'transfer value, decimal string number',
 		maxFee: 'max transfer gas fee, decimal string number',
 		deadline: 'timestamp, transaction deadline',
-		version: "version of the signature, the current version is 1",
+		version: "version of the signature algorithm used by gasfree offline transaction, the current version is 1",
 		nonce: 'gas free transaction nonce, decimal string number',
 	});
 } catch (error) {
@@ -131,7 +131,7 @@ try {
 		value: 'transfer value, decimal string number',
 		maxFee: 'max transfer gas fee, decimal string number',
 		deadline: 'timestamp, transaction deadline',
-		version: "version of the signature, the current version is 1",
+		version: "version of the signature algorithm used by gasfree offline transaction, the current version is 1",
 		nonce: 'gas free transaction nonce, decimal string number',
 	});
 } catch (error) {
@@ -158,7 +158,7 @@ try {
 		value: 'transfer value, decimal string number',
 		maxFee: 'max transfer gas fee, decimal string number',
 		deadline: 'timestamp, transaction deadline',
-		version: "version of the signature, the current version is 1",
+		version: "version of the signature algorithm used by gasfree offline transaction, the current version is 1",
 		nonce: 'gas free transaction nonce, decimal string number',
 	});
 
@@ -187,7 +187,7 @@ try {
 				value: 'transfer value, decimal string number',
 				maxFee: 'max transfer gas fee, decimal string number',
 				deadline: 'timestamp, transaction deadline',
-				version: "version of the signature, the current version is 1",
+				version: "version of the signature algorithm used by gasfree offline transaction, the current version is 1",
 				nonce: 'gas free transaction nonce, decimal string number',
 			},
 		});
