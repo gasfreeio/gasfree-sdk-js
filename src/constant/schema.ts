@@ -1,0 +1,25 @@
+export const MESSAGE_TYPED_DATA_SCHEMA = {
+  type: 'object',
+  properties: {
+    token: { type: 'string' },
+    serviceProvider: { type: 'string' },
+    user: { type: 'string' },
+    receiver: { type: 'string' },
+    value: { type: ['string', 'number'], pattern: '(^\\d*$)|(^0x[0-9a-f]+$)' },
+    maxFee: { type: ['string', 'number'], pattern: '(^\\d*$)|(^0x[0-9a-f]+$)' },
+    deadline: { type: ['string', 'number'], pattern: '^[1-9]\\d*$' },
+    version: { type: ['string', 'number'], pattern: '^[1-9]\\d*$' },
+    nonce: { type: ['string', 'number'], pattern: '(^\\d*$)|(^0x[0-9a-f]+$)' },
+  },
+  required: [
+    'token',
+    'serviceProvider',
+    'user',
+    'receiver',
+    'value',
+    'maxFee',
+    'deadline',
+    'version',
+    'nonce',
+  ],
+};
