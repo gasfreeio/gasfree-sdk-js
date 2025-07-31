@@ -1,9 +1,14 @@
 // @ts-ignore
-import TronWeb from 'tronweb';
+import { TronWeb } from 'tronweb';
 import { DefaultChainInfoMap, TRON_CHAIN_ID } from '../constant/common';
 import { ethToTronAddress } from '../utils';
 import { TronGasFree } from '../TronGasFree';
-import { tronAddressList, tronMainnetAddressList, tronMessageList, tronShastaAddressList } from './constant';
+import {
+  tronAddressList,
+  tronMessageList,
+  tronMainnetAddressList,
+  tronShastaAddressList,
+} from './constant';
 
 const TEST_OWNER_ADDRESS = 'TMVQGm1qAQYVdetCeGRRkTWYYrLXuHK2HC';
 

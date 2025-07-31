@@ -1,204 +1,222 @@
-# tronlink-gasfree-sdk-js
-tronlink-gasfree-sdk-js is a toolkit developed by TronLink based on the GasFree API specification. It facilitates the integration of the non-gas TRC20 token transfer service for the web & browser extension platform.
+# gasfree-sdk-js
 
-This SDK is provided by TronLink, while the definition & maintenance of the APIs are managed by the official GasFree project. For more information, visit [https://gasfree.io](https://gasfree.io).
+gasfree-sdk-js is a toolkit developed based on the GasFree API specification. It facilitates the
+integration of the non-gas TRC20 token transfer service for the web & browser extension platform.
+
+Originally developed by TronLink and hosted at https://github.com/TronLink/tronlink-gasfree-sdk-js,
+this SDK is now maintained and continuously updated by the gasfree.io developer community.
+
+For more information, visit [https://gasfree.io](https://gasfree.io).
 
 Key Features:
- - Generate GasFree Addresses from User Addresses
- - Generate GasFree Transfer Message Hash
 
+- Generate GasFree Addresses from User Addresses
+- Generate GasFree Transfer Message Hash
 
 ## Demo
- - [tronGenerateGasFreeAddress](demo/tronGenerateGasFreeAddress.ts)
- - [tronGetGasFreeTransactionJson](demo/tronGetGasFreeTransactionJson.ts)
- - [tronGetGasFreeLedgerRawHash](demo/tronGetGasFreeLedgerRawHash.ts)
 
+- [tronGenerateGasFreeAddress](demo/tronGenerateGasFreeAddress.ts)
+- [tronGetGasFreeTransactionJson](demo/tronGetGasFreeTransactionJson.ts)
+- [tronGetGasFreeLedgerRawHash](demo/tronGetGasFreeLedgerRawHash.ts)
 
 ## Usage
 
 #### quick start
+
 initialization:
+
 ```javascript
 const tronGasFree = new TronGasFree({
-	chainId: Number('0x2b6653dc'), // use mainnet default config
+  chainId: Number('0x2b6653dc'), // use mainnet default config
 });
 ```
 
 generate gas free address:
+
 ```javascript
-import { TronGasFree } from '@tronlink/gasfree-sdk-js'
+import { TronGasFree } from '@gasfree/gasfree-sdk';
 
 try {
-	const userAddress = 'your tron wallet address'
-	const tronGasFree = new TronGasFree({
-		chainId: Number('0x2b6653dc'), // use mainnet default config
-	});
-	const tronGasFreeAddress = tronGasFree.generateGasFreeAddress(userAddress);
+  const userAddress = 'your tron wallet address';
+  const tronGasFree = new TronGasFree({
+    chainId: Number('0x2b6653dc'), // use mainnet default config
+  });
+  const tronGasFreeAddress = tronGasFree.generateGasFreeAddress(userAddress);
 } catch (error) {
-	console.log(error);
+  console.log(error);
 }
 ```
 
 get standard TIP712 gas free transaction json object:
-```typescript
 
+```typescript
 try {
-	const tronGasFree = new TronGasFree({
-		chainId: Number('0x2b6653dc'), // use mainnet default config
-	});
-	const transactionJson = tronGasFree.assembleGasFreeTransactionJson({
-		token: 'transaction token contract address',
-		serviceProvider: 'gas free transaction service provider',
-		user: 'your tron wallet address, NOT your gas free address',
-		receiver: 'tron receiver address, it can be a wallet address or a gasfree contract address',
-		value: 'transfer value, decimal string number',
-		maxFee: 'max transfer gas fee, decimal string number',
-		deadline: 'timestamp, transaction deadline',
-		version: "version of the signature algorithm used by gasfree offline transaction, the current version is 1",
-		nonce: 'gas free transaction nonce, decimal string number',
-	});
-} catch (error) {
-}
+  const tronGasFree = new TronGasFree({
+    chainId: Number('0x2b6653dc'), // use mainnet default config
+  });
+  const transactionJson = tronGasFree.assembleGasFreeTransactionJson({
+    token: 'transaction token contract address',
+    serviceProvider: 'gas free transaction service provider',
+    user: 'your tron wallet address, NOT your gas free address',
+    receiver: 'tron receiver address, it can be a wallet address or a gasfree contract address',
+    value: 'transfer value, decimal string number',
+    maxFee: 'max transfer gas fee, decimal string number',
+    deadline: 'timestamp, transaction deadline',
+    version:
+      'version of the signature algorithm used by gasfree offline transaction, the current version is 1',
+    nonce: 'gas free transaction nonce, decimal string number',
+  });
+} catch (error) {}
 ```
 
 #### initialization
- use Tron mainnet default config:
+
+use Tron mainnet default config:
+
 ```typescript
 const tronGasFree = new TronGasFree({
-	chainId: Number('0x2b6653dc'),
+  chainId: Number('0x2b6653dc'),
 });
 ```
 
 if you want to use testnet config:
+
 ```typescript
 const tronGasFree = new TronGasFree({
-	chainId: Number('0xcd8690dc'), // nile
+  chainId: Number('0xcd8690dc'), // nile
 });
 ```
+
 or
+
 ```typescript
 const tronGasFree = new TronGasFree({
-	chainId: Number('0x94a9059e'), // shasta
+  chainId: Number('0x94a9059e'), // shasta
 });
 ```
 
 If you have your own GasFreeController contract, or your own chain:
+
 ```typescript
 const tronGasFree = new TronGasFree({
-	chainId: 0, // your chainId, number
-	gasFreeController: 'your gas free controller address contract, should deployed on the chain in advance',
-	beacon: 'your beacon',
-	creationCode: 'your GasFreeController creation code',
+  chainId: 0, // your chainId, number
+  gasFreeController:
+    'your gas free controller address contract, should deployed on the chain in advance',
+  beacon: 'your beacon',
+  creationCode: 'your GasFreeController creation code',
 });
 ```
+
 #### generate GasFree address
+
 ```javascript
-import { TronGasFree } from '@tronlink/gasfree-sdk-js'
+import { TronGasFree } from '@gasfree/gasfree-sdk';
 
 try {
-	const userAddress = 'your tron wallet address'
-	const tronGasFree = new TronGasFree({
-		chainId: Number('0x2b6653dc'), // use mainnet default config
-	});
-	const tronGasFreeAddress = tronGasFree.generateGasFreeAddress(userAddress);
+  const userAddress = 'your tron wallet address';
+  const tronGasFree = new TronGasFree({
+    chainId: Number('0x2b6653dc'), // use mainnet default config
+  });
+  const tronGasFreeAddress = tronGasFree.generateGasFreeAddress(userAddress);
 } catch (error) {
-	console.log(error);
+  console.log(error);
 }
 ```
 
 different chains and different GasFreeControllers will result in inconsistent GasFree addresses.
+
 ```javascript
-const userAddress = 'your tron wallet address'
+const userAddress = 'your tron wallet address';
 const tronGasFree = new TronGasFree({
-	chainId: Number('0xcd8690dc'), // nile
+  chainId: Number('0xcd8690dc'), // nile
 });
 const tronGasFreeAddress2 = tronGasFree.generateGasFreeAddress(userAddress);
 // tronGasFreeAddress2 is different from tronGasFreeAddress
 ```
 
-
 #### Get standard TIP712 gas free transaction json object
+
 ```typescript
 try {
-	const tronGasFree = new TronGasFree({
-		chainId: Number('0x2b6653dc'), // use mainnet default config
-	});
-	const transactionJson = tronGasFree.assembleGasFreeTransactionJson({
-		token: 'transaction token contract address',
-		serviceProvider: 'gas free transaction service provider',
-		user: 'your tron wallet address, NOT your gas free address',
-		receiver: 'tron receiver address, it can be a wallet address or a gasfree contract address',
-		value: 'transfer value, decimal string number',
-		maxFee: 'max transfer gas fee, decimal string number',
-		deadline: 'timestamp, transaction deadline',
-		version: "version of the signature algorithm used by gasfree offline transaction, the current version is 1",
-		nonce: 'gas free transaction nonce, decimal string number',
-	});
-} catch (error) {
-}
+  const tronGasFree = new TronGasFree({
+    chainId: Number('0x2b6653dc'), // use mainnet default config
+  });
+  const transactionJson = tronGasFree.assembleGasFreeTransactionJson({
+    token: 'transaction token contract address',
+    serviceProvider: 'gas free transaction service provider',
+    user: 'your tron wallet address, NOT your gas free address',
+    receiver: 'tron receiver address, it can be a wallet address or a gasfree contract address',
+    value: 'transfer value, decimal string number',
+    maxFee: 'max transfer gas fee, decimal string number',
+    deadline: 'timestamp, transaction deadline',
+    version:
+      'version of the signature algorithm used by gasfree offline transaction, the current version is 1',
+    nonce: 'gas free transaction nonce, decimal string number',
+  });
+} catch (error) {}
 ```
 
 #### normal GasFree signature
+
 ```typescript
 import TronWeb from 'tronweb';
-import { TronGasFree } from '@tronlink/gasfree-sdk-js';
+import { TronGasFree } from '@gasfree/gasfree-sdk';
 
 const PRIVATE_KEY = 'your private key';
 
 try {
-	const tronGasFree = new TronGasFree({
-		chainId: Number('0x2b6653dc'), // use mainnet default config
-	});
+  const tronGasFree = new TronGasFree({
+    chainId: Number('0x2b6653dc'), // use mainnet default config
+  });
 
-	const { domain, types, message } = tronGasFree.assembleGasFreeTransactionJson({
-		token: 'transaction token contract address',
-		serviceProvider: 'gas free transaction service provider',
-		user: 'your tron wallet address, NOT your gas free address',
-		receiver: 'tron receiver address, it can be a wallet address or a gasfree contract address',
-		value: 'transfer value, decimal string number',
-		maxFee: 'max transfer gas fee, decimal string number',
-		deadline: 'timestamp, transaction deadline',
-		version: "version of the signature algorithm used by gasfree offline transaction, the current version is 1",
-		nonce: 'gas free transaction nonce, decimal string number',
-	});
+  const { domain, types, message } = tronGasFree.assembleGasFreeTransactionJson({
+    token: 'transaction token contract address',
+    serviceProvider: 'gas free transaction service provider',
+    user: 'your tron wallet address, NOT your gas free address',
+    receiver: 'tron receiver address, it can be a wallet address or a gasfree contract address',
+    value: 'transfer value, decimal string number',
+    maxFee: 'max transfer gas fee, decimal string number',
+    deadline: 'timestamp, transaction deadline',
+    version:
+      'version of the signature algorithm used by gasfree offline transaction, the current version is 1',
+    nonce: 'gas free transaction nonce, decimal string number',
+  });
 
   const res = await TronWeb.Trx._signTypedData(domain, types, message, PRIVATE_KEY);
-} catch (error) {
-}
+} catch (error) {}
 ```
 
 #### ledger GasFree signature
+
 ```typescript
-import { TronGasFree } from '@tronlink/gasfree-sdk-js'
+import { TronGasFree } from '@gasfree/gasfree-sdk';
 import AppTrx from '@ledgerhq/hw-app-trx';
 import TransportWebHID from '@ledgerhq/hw-transport-webhid';
 
 try {
-	const tronGasFree = new TronGasFree({
-		chainId: Number('0x2b6653dc'), // use mainnet default config
-	});
-	const { permitTransferMessageHash } =
-		tronGasFree.getGasFreeLedgerRawHash({
-			message: {
-				token: 'transaction token contract address',
-				serviceProvider: 'gas free transaction service provider',
-				user: 'your tron wallet address, NOT your gas free address',
-				receiver: 'tron receiver address, it can be a wallet address or a gasfree contract address',
-				value: 'transfer value, decimal string number',
-				maxFee: 'max transfer gas fee, decimal string number',
-				deadline: 'timestamp, transaction deadline',
-				version: "version of the signature algorithm used by gasfree offline transaction, the current version is 1",
-				nonce: 'gas free transaction nonce, decimal string number',
-			},
-		});
-	const transport = await TransportWebHID.create();
-	const app = new AppTrx(transport);
-	const path = 'you ledger address path';
-	const res = await app.signTransactionHash(path, permitTransferMessageHash);
-} catch (error) {
-}
+  const tronGasFree = new TronGasFree({
+    chainId: Number('0x2b6653dc'), // use mainnet default config
+  });
+  const { permitTransferMessageHash } = tronGasFree.getGasFreeLedgerRawHash({
+    message: {
+      token: 'transaction token contract address',
+      serviceProvider: 'gas free transaction service provider',
+      user: 'your tron wallet address, NOT your gas free address',
+      receiver: 'tron receiver address, it can be a wallet address or a gasfree contract address',
+      value: 'transfer value, decimal string number',
+      maxFee: 'max transfer gas fee, decimal string number',
+      deadline: 'timestamp, transaction deadline',
+      version:
+        'version of the signature algorithm used by gasfree offline transaction, the current version is 1',
+      nonce: 'gas free transaction nonce, decimal string number',
+    },
+  });
+  const transport = await TransportWebHID.create();
+  const app = new AppTrx(transport);
+  const path = 'you ledger address path';
+  const res = await app.signTransactionHash(path, permitTransferMessageHash);
+} catch (error) {}
 ```
-
 
 ## Running the tests
 
@@ -227,11 +245,13 @@ development and testing purposes.
 This project recommends using `pnpm` as the build tool Make sure node is installed:
 
 Make sure the node version meets the requirements:
+
 ```bash
 node -v
 ```
 
 and install `pnpm`:
+
 ```bash
 npm i -g pnpm
 ```
@@ -256,16 +276,6 @@ pnpm build
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/)
-
-## Integrity Check
-
-The package files will be signed using a GPG key pair, and the correctness of the signature will be verified using the following public key:
-
-```
-pub: 7B910EA80207596075E6D7BA5D34F7A6550473BA
-uid: build_tronlink <build@tronlink.org>
-```
-
 
 ## License
 

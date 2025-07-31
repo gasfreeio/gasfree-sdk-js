@@ -1,4 +1,5 @@
 import { DefaultChainInfoMap, TRON_CHAIN_ID } from '../constant/common';
+import { GasFreeTypedDataMessage } from '../types';
 import { toEthAddress, ethToTronAddress } from '../utils';
 
 export const tronAddressList = [
@@ -170,6 +171,20 @@ export const tronMessageList = [
 
 export const TRON_DOMAIN_SEPARATOR =
   '0x31a0a46f427dd040c91835228e4555951bde0a894cae6239869bb680ebc6ebea';
+
+export const TRON_EIP712_DATA = {
+  message: {
+    token: ethToTronAddress('0xECa9bC828A3005B9a3b909f2cc5c2a54794DE05F'),
+    serviceProvider: ethToTronAddress('0x70C77E8aC165d2980E9741cB4Af2E40cF3C280de'),
+    user: ethToTronAddress('0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf'),
+    receiver: ethToTronAddress('0x5bE049630A2c8B18F1B6BF53bE95120A3f982fcc'),
+    value: '22',
+    maxFee: 2,
+    deadline: '1726207632',
+    version: '1',
+    nonce: '2',
+  } as GasFreeTypedDataMessage,
+};
 
 export const TRON_EIP712_DOMAIN = {
   name: 'GasFreeController',

@@ -1,5 +1,6 @@
 import { DefaultChainInfoMap, PermitTransfer, TRON_CHAIN_ID } from '../constant/common';
 import { TronGasFree } from '../TronGasFree';
+import { Address } from '../types';
 import { ethToTronAddress, toEthAddress } from '../utils';
 import {
   TRON_DOMAIN_SEPARATOR,
@@ -457,5 +458,108 @@ describe('test TronGasFree', () => {
         nonce: 'aa',
       }),
     ).toThrow();
+  });
+
+  describe('test checkIsValidGasFreeTypedDataParams', () => {
+    it('should validate correct message', () => {
+      const validMessage = {
+        token: 'TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf' as Address,
+        serviceProvider: 'TMVQGm1qAQYVdetCeGRRkTWYYrLXuHK2HC' as Address,
+        user: 'TMVQGm1qAQYVdetCeGRRkTWYYrLXuHK2HC' as Address,
+        receiver: 'TJM1BE5wq1VdHh3gwjUeyaVkvZp9DVYCfC' as Address,
+        value: '10000',
+        maxFee: '2000',
+        deadline: '1726207632',
+        version: '1',
+        nonce: '2',
+      };
+
+      expect(() =>
+        tronGasFree.checkIsValidGasFreeTypedDataParams({ message: validMessage }),
+      ).not.toThrow();
+    });
+
+    it('should throw error when token is not valid Tron address', () => {
+      const invalidMessage = {
+        token: '0xInvalidAddress' as Address,
+        serviceProvider: 'TMVQGm1qAQYVdetCeGRRkTWYYrLXuHK2HC' as Address,
+        user: 'TMVQGm1qAQYVdetCeGRRkTWYYrLXuHK2HC' as Address,
+        receiver: 'TJM1BE5wq1VdHh3gwjUeyaVkvZp9DVYCfC' as Address,
+        value: '10000',
+        maxFee: '2000',
+        deadline: '1726207632',
+        version: '1',
+        nonce: '2',
+      };
+
+      expect(() =>
+        tronGasFree.checkIsValidGasFreeTypedDataParams({ message: invalidMessage }),
+      ).toThrow('Invalid message.token: 0xInvalidAddress, should be a valid Tron address');
+    });
+
+    it('should throw error when user is not valid Tron address', () => {
+      const invalidMessage = {
+        token: 'TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf' as Address,
+        serviceProvider: 'TMVQGm1qAQYVdetCeGRRkTWYYrLXuHK2HC' as Address,
+        user: '0xInvalidAddress' as Address,
+        receiver: 'TJM1BE5wq1VdHh3gwjUeyaVkvZp9DVYCfC' as Address,
+        value: '10000',
+        maxFee: '2000',
+        deadline: '1726207632',
+        version: '1',
+        nonce: '2',
+      };
+
+      expect(() =>
+        tronGasFree.checkIsValidGasFreeTypedDataParams({ message: invalidMessage }),
+      ).toThrow('Invalid message.token: 0xInvalidAddress, should be a valid Tron address');
+    });
+
+    it('should throw error when receiver is not valid Tron address', () => {
+      const invalidMessage = {
+        token: 'TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf' as Address,
+        serviceProvider: 'TMVQGm1qAQYVdetCeGRRkTWYYrLXuHK2HC' as Address,
+        user: 'TMVQGm1qAQYVdetCeGRRkTWYYrLXuHK2HC' as Address,
+        receiver: '0xInvalidAddress' as Address,
+        value: '10000',
+        maxFee: '2000',
+        deadline: '1726207632',
+        version: '1',
+        nonce: '2',
+      };
+
+      expect(() =>
+        tronGasFree.checkIsValidGasFreeTypedDataParams({ message: invalidMessage }),
+      ).toThrow('Invalid message.token: 0xInvalidAddress, should be a valid Tron address');
+    });
+
+    it('should throw error when serviceProvider is not valid Tron address', () => {
+      const invalidMessage = {
+        token: 'TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf' as Address,
+        serviceProvider: '0xInvalidAddress' as Address,
+        user: 'TMVQGm1qAQYVdetCeGRRkTWYYrLXuHK2HC' as Address,
+        receiver: 'TJM1BE5wq1VdHh3gwjUeyaVkvZp9DVYCfC' as Address,
+        value: '10000',
+        maxFee: '2000',
+        deadline: '1726207632',
+        version: '1',
+        nonce: '2',
+      };
+
+      expect(() =>
+        tronGasFree.checkIsValidGasFreeTypedDataParams({ message: invalidMessage }),
+      ).toThrow('Invalid message.token: 0xInvalidAddress, should be a valid Tron address');
+    });
+
+    it('should throw error when message schema is invalid', () => {
+      const invalidMessage = {
+        token: 'TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf' as Address,
+        value: '10000',
+      } as any;
+
+      expect(() =>
+        tronGasFree.checkIsValidGasFreeTypedDataParams({ message: invalidMessage }),
+      ).toThrow('Invalid input message');
+    });
   });
 });

@@ -5,15 +5,14 @@ import { bufferToHex, toBuffer } from '@ethereumjs/util';
 import abi from 'ethereumjs-abi';
 
 import { isDef, toEthAddress } from './utils';
-import { DefaultChainInfoMap, EIP712Domain } from './constant/common';
-import { PermitTransfer } from './constant/common';
+import { DefaultChainInfoMap, EIP712Domain, PermitTransfer } from './constant/common';
 import type {
   ChainInfo,
   GasFreeLedgerRawHashObject,
   TronAddress,
   EvmAddress,
-  EvmGasFreeTypedData,
   GasFreeTypedDataMessage,
+  EvmGasFreeTypedData,
 } from './types';
 
 export interface GasFreeParameter {
@@ -314,7 +313,7 @@ export abstract class GasFree {
     return { domainSeparatorHex, hashStructMessageHex, permitTransferMessageHash };
   }
 
-  protected getGasFreeTypedDataDomain() {
+  public getGasFreeTypedDataDomain() {
     return {
       name: 'GasFreeController',
       version: 'V1.0.0',
@@ -322,6 +321,12 @@ export abstract class GasFree {
       verifyingContract: toEthAddress(this.chainInfo.gasFreeController),
     };
   }
+
+  public abstract checkIsValidGasFreeTypedDataParams({
+    message,
+  }: {
+    message: GasFreeTypedDataMessage;
+  }): boolean;
 
   protected abstract checkIsValidAddress(address?: string): boolean;
 
