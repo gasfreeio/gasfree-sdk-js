@@ -19,6 +19,26 @@ Key Features:
 - [tronGetGasFreeTransactionJson](demo/tronGetGasFreeTransactionJson.ts)
 - [tronGetGasFreeLedgerRawHash](demo/tronGetGasFreeLedgerRawHash.ts)
 
+## Installing
+
+add @gasfree/gasfree-sdk
+
+```bash
+npm install @gasfree/gasfree-sdk
+```
+
+or
+
+```bash
+yarn add @gasfree/gasfree-sdk
+```
+
+or
+
+```bash
+pnpm install @gasfree/gasfree-sdk
+```
+
 ## Usage
 
 #### quick start
