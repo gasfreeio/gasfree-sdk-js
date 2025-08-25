@@ -3,8 +3,7 @@
 gasfree-sdk-js is a toolkit developed based on the GasFree API specification. It facilitates the
 integration of the non-gas TRC20 token transfer service for the web & browser extension platform.
 
-Originally developed by TronLink and hosted at https://github.com/TronLink/tronlink-gasfree-sdk-js,
-this SDK is now maintained and continuously updated by the gasfree.io developer community.
+This SDK is maintained by the gasfree.io developer community.
 
 For more information, visit [https://gasfree.io](https://gasfree.io).
 
