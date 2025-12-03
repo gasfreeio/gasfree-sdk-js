@@ -45,7 +45,7 @@ specifiers:
   jsonschema: 1.4.1
   prettier: 3.1.1
   rimraf: 5.0.5
-  tronweb: 6.0.4
+  tronweb: 6.1.0
   ts-jest: 29.1.1
   ts-node: 10.9.2
   typescript: 5.8.3
@@ -61,7 +61,7 @@ dependencies:
   ethereum-cryptography: 1.1.2
   ethereumjs-abi: 0.6.8
   jsonschema: 1.4.1
-  tronweb: 6.0.4
+  tronweb: 6.1.0
 
 devDependencies:
   '@babel/core': 7.23.7
@@ -5854,8 +5854,8 @@ packages:
       is-number: 7.0.0
     dev: true
 
-  /tronweb/6.0.4:
-    resolution: {integrity: sha512-+9Nc7H4FYVh2DcOnQG93WLm3UdlHSf9W+GXkfrXI77oLjTB1cptROJDKRSSxQBiOAyjjAJOOTuYDzlAkaLT85w==}
+  /tronweb/6.1.0:
+    resolution: {integrity: sha512-ANEr2YneA2frXTpsxDR21yk2cJLIvOdPe7dg7gu96TyqfVbS9eCrguNuN+qCUZOC/zW3n6R880bBDbEWKZiWzA==}
     dependencies:
       '@babel/runtime': 7.26.10
       axios: 1.12.2

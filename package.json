@@ -37,7 +37,7 @@
     "ethereum-cryptography": "1.1.2",
     "ethereumjs-abi": "0.6.8",
     "jsonschema": "1.4.1",
-    "tronweb": "6.0.4"
+    "tronweb": "6.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.23.7",
