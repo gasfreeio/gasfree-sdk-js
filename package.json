@@ -1,6 +1,6 @@
 {
   "name": "@gasfree/gasfree-sdk",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "",
   "author": "",
   "repository": {
@@ -82,7 +82,8 @@
       "form-data": "4.0.4",
       "sha.js": "2.4.12",
       "cipher-base": "1.0.5",
-      "rimraf@5.0.5>glob": "11.1.0"
+      "rimraf@5.0.5>glob": "11.1.0",
+      "validator": "13.15.23"
     }
   }
 }
