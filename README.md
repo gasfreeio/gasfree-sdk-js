@@ -296,6 +296,15 @@ pnpm build
 - [TypeScript](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/)
 
+## Integrity Check
+
+The package files will be signed using a GPG key pair, and the correctness of the signature will be verified using the following public key:
+
+```
+pub: 2240 25F8 48CD B9F9 B53F BCD7 808C 8DC0 ED6D 5A46
+uid: build@gasfree.io
+```
+
 ## License
 
 This project is licensed under the Apache License Version 2.0 - see the [LICENSE](LICENSE) file for
