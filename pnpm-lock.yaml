@@ -16,6 +16,7 @@ overrides:
   cipher-base: 1.0.5
   '@typescript-eslint/typescript-estree@6.17.0>minimatch': 9.0.9
   serialize-javascript: 7.0.3
+  flatted: 3.4.1
 
 specifiers:
   '@babel/core': 7.23.7
@@ -3996,13 +3997,13 @@ packages:
     resolution: {integrity: sha512-CYcENa+FtcUKLmhhqyctpclsq7QF38pKjZHsGNiSQF5r4FtoKDWabFDl3hzaEQMvT1LHEysw5twgLvpYYb4vbw==}
     engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
-      flatted: 3.3.1
+      flatted: 3.4.1
       keyv: 4.5.4
       rimraf: 3.0.2
     dev: true
 
-  /flatted/3.3.1:
-    resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
+  /flatted/3.4.1:
+    resolution: {integrity: sha512-IxfVbRFVlV8V/yRaGzk0UVIcsKKHMSfYw66T/u4nTwlWteQePsxe//LjudR1AMX4tZW3WFCh3Zqa/sjlqpbURQ==}
     dev: true
 
   /follow-redirects/1.15.11:
