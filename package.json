@@ -83,7 +83,8 @@
       "sha.js": "2.4.12",
       "cipher-base": "1.0.5",
       "@typescript-eslint/typescript-estree@6.17.0>minimatch": "9.0.9",
-      "serialize-javascript": "7.0.3"
+      "serialize-javascript": "7.0.3",
+      "flatted": "3.4.1"
     }
   }
 }
