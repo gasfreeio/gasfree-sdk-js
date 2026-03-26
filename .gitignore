@@ -7,3 +7,6 @@ coverage
 .DS_Store
 .vscode
 .npmrc
+.security-reports/
+.claude/
+.githooks/
