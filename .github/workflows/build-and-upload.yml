@@ -68,8 +68,10 @@ jobs:
           tar -czf "${FILE_BASE}.tar.gz" ./dist
 
       - name: Upload to S3
+        env:
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
         run: |
           echo "Uploading ${FILE_BASE}.zip"
           echo "Uploading ${FILE_BASE}.tar.gz"
-          aws s3 cp "${FILE_BASE}.zip" "s3://tronlink-dev/frontend/gasfree-sdk-js/"
-          aws s3 cp "${FILE_BASE}.tar.gz" "s3://tronlink-dev/frontend/gasfree-sdk-js/"
+          aws s3 cp "${FILE_BASE}.zip" "s3://$S3_BUCKET/frontend/gasfree-sdk-js/"
+          aws s3 cp "${FILE_BASE}.tar.gz" "s3://$S3_BUCKET/frontend/gasfree-sdk-js/"
