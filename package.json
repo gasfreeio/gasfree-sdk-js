@@ -85,7 +85,8 @@
       "@typescript-eslint/typescript-estree@6.17.0>minimatch": "9.0.9",
       "serialize-javascript": "7.0.3",
       "flatted": "3.4.2",
-      "picomatch": "2.3.2"
+      "picomatch": "2.3.2",
+      "@babel/preset-env>@babel/plugin-transform-modules-systemjs": "7.29.4"
     }
   }
 }
