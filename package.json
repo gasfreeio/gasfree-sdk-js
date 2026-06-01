@@ -63,7 +63,7 @@
     "ts-jest": "29.1.1",
     "ts-node": "10.9.2",
     "typescript": "5.8.3",
-    "webpack": "5.94.0",
+    "webpack": "5.104.1",
     "webpack-cli": "4.10.0",
     "webpack-node-externals": "3.0.0"
   },
@@ -73,7 +73,7 @@
       "elliptic": "6.6.1",
       "secp256k1": "4.0.4",
       "cross-spawn": "7.0.5",
-      "axios": "1.15.2",
+      "axios": "1.16.0",
       "@babel/runtime-corejs3": "7.26.10",
       "@babel/runtime": "7.26.10",
       "@babel/helpers": "7.26.10",
@@ -83,10 +83,19 @@
       "sha.js": "2.4.12",
       "cipher-base": "1.0.5",
       "@typescript-eslint/typescript-estree@6.17.0>minimatch": "9.0.9",
-      "serialize-javascript": "7.0.3",
+      "serialize-javascript": "7.0.5",
       "flatted": "3.4.2",
       "picomatch": "2.3.2",
-      "@babel/preset-env>@babel/plugin-transform-modules-systemjs": "7.29.4"
+      "@babel/preset-env>@babel/plugin-transform-modules-systemjs": "7.29.4",
+      "bn.js@<5.0.0": "4.12.3",
+      "bn.js@>=5.0.0": "5.2.3",
+      "ws@>=8.0.0 <8.20.1": "8.20.1",
+      "ajv@<7.0.0": "6.14.0",
+      "brace-expansion@<2.0.0": "1.1.13",
+      "brace-expansion@>=2.0.0": "2.0.3",
+      "js-yaml@<4.0.0": "3.14.2",
+      "js-yaml@>=4.0.0": "4.1.1",
+      "diff": "4.0.4"
     }
   }
 }
