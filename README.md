@@ -38,6 +38,9 @@ or
 pnpm install @gasfree/gasfree-sdk
 ```
 
+> Note: the package declares `engines.node` as `24.22.1`. Installing it with a different Node.js
+> version may print an `Unsupported engine` warning, and will fail if `engine-strict` is enabled.
+
 ## Usage
 
 #### quick start
@@ -253,9 +256,8 @@ development and testing purposes.
 
 ### Prerequisites
 
-- Node.js >= 18.19.0
-- pnpm >= 7.32.0
-- TypeScript >= 4.9.5
+- Node.js 24.22.1
+- pnpm 7.32.0
 
 ### Build
 
@@ -269,10 +271,17 @@ Make sure the node version meets the requirements:
 node -v
 ```
 
+If you use [nvm](https://github.com/nvm-sh/nvm), you can switch to the required version with:
+
+```bash
+nvm install 24.22.1
+nvm use 24.22.1
+```
+
 and install `pnpm`:
 
 ```bash
-npm i -g pnpm
+npm i -g pnpm@7.32.0
 ```
 
 ##### 2. Clone the repository
