@@ -257,7 +257,7 @@ development and testing purposes.
 ### Prerequisites
 
 - Node.js 24.22.1
-- pnpm 7.32.0
+- pnpm 10.12.4
 
 ### Build
 
@@ -281,7 +281,7 @@ nvm use 24.22.1
 and install `pnpm`:
 
 ```bash
-npm i -g pnpm@7.32.0
+npm i -g pnpm@10.12.4
 ```
 
 ##### 2. Clone the repository

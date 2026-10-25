@@ -24,7 +24,7 @@ jobs:
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm install 24.22.1
-          npm install -g pnpm@7.32.0
+          npm install -g pnpm@10.12.4
           pnpm --version
 
 
@@ -34,7 +34,7 @@ jobs:
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm install 24.22.1
-          npm install -g pnpm@7.32.0
+          npm install -g pnpm@10.12.4
           pnpm install
           pnpm run build
 
